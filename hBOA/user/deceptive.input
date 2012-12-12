@@ -1,0 +1,36 @@
+
+populationSize  = 600
+maxFitnessCalls = -1
+outputFile      = deceptive.out
+
+dependencyTreshold=3.84
+
+offspringPercentage = 100
+parentsPercentage = 100
+problemSize = 40
+
+maxIncoming =50
+
+allowAdditions = 1
+allowRemovals  = 1
+allowReversals = 0
+
+epsilon = 0.05
+
+maxNumberOfGenerations = 100
+
+fitnessFunction = 1
+
+selection = 1
+tournamentSize=2
+
+displayDependencies = 0
+displayGuidance = 0
+displayUMF = 0
+displayOrdering = 0
+
+stopWhenFoundOptimum = 0
+outputUMF     = 0
+outputFitness = 1
+
+randSeed = 321

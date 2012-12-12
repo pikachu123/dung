@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC		= g++$/;"	m
+CPPFLAGS	Makefile	/^CPPFLAGS	= -I$(hBOALIBDIR) -c -Wall  -O3$/;"	m
+LFLAGS	Makefile	/^LFLAGS		=$/;"	m
+decodeRealValue	run_hBOA.cpp	/^double decodeRealValue(int iLength, char *pChromosome, double dLower, double dUpper)$/;"	f
+hBOALIBDIR	Makefile	/^hBOALIBDIR	= ..$/;"	m
+main	run_hBOA.cpp	/^int main(int argc, char **argv)$/;"	f
+myGeneralTrap	run_hBOA.cpp	/^double myGeneralTrap(char *x, int k, double leftPeak, double rightPeak)$/;"	f
+myOneMax	run_hBOA.cpp	/^double myOneMax(int iLength, char *pChromosome)$/;"	f
+myOneMaxGoodBBs	run_hBOA.cpp	/^double myOneMaxGoodBBs(int iLength, char *pChromosome)$/;"	f
+myOneMaxIsBest	run_hBOA.cpp	/^char myOneMaxIsBest(int iLength, char *pChromosome)$/;"	f
+mySphere	run_hBOA.cpp	/^double mySphere(int iLength, char *pChromosome)$/;"	f
+myTrap4	run_hBOA.cpp	/^double myTrap4(int iLength, char *pChromosome)$/;"	f
+myhDeceptive	run_hBOA.cpp	/^double myhDeceptive(int iLength, char *pChromosome)$/;"	f
+myhTrap	run_hBOA.cpp	/^double myhTrap(int iLength, char *pChromosome)$/;"	f
+trap	run_hBOA.cpp	/^int trap(char *x, int n, int order)$/;"	f

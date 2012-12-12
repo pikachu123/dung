@@ -1,0 +1,38 @@
+populationSize  = 2000
+maxFitnessCalls = -1
+outputFile      = hTrap3.out
+
+dependencyTreshold=3.84
+
+offspringPercentage = 100
+parentsPercentage = 100
+problemSize = 81
+
+maxIncoming =50
+
+replacement = 4
+
+allowAdditions = 1
+allowRemovals  = 1
+allowReversals = 0
+
+epsilon = 0.05
+
+fitnessFunction = 5
+
+maxNumberOfGenerations = 100
+
+selection = 1
+tournamentSize=8
+
+displayDependencies = 0
+displayGuidance = 0
+displayUMF = 0
+displayOrdering = 0
+
+
+stopWhenFoundOptimum = 0
+outputUMF     = 0
+outputFitness = 1
+
+randSeed = 321
