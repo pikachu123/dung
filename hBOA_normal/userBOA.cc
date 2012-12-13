@@ -12,32 +12,52 @@ FitnessDefinition fitnessDefinition;
 extern double evaluate_2(vector<char>, vector<char>, int );
 extern int subevaluate(vector<char>, vector<char>, int, int, int );
 extern bool checkflag(vector<bool> );
-extern double evaluate_3(vector<char> s1, vector<char> s2, vector<char> s3,vector<char> s4, int numchannel);
-//extern double evaluate_3(vector<char> s1, vector<char> s2, vector<char> s3, int numchannel);
-#define seqNum 4
-#define maxSize 11
-#define splen 20
-//int seqSize[seqNum]={11,13,14};
-int seqSize[seqNum]={7,8,9,11};
+//extern double evaluate_3(vector<char> s1, vector<char> s2, vector<char> s3,vector<char> s4, int numchannel);
+extern double evaluate_3(vector<char> s1, vector<char> s2, vector<char> s3, int numchannel);
+#define seqNum 3
+#define maxSize 9
+#define splen 13
+int seqSize[seqNum]={7,8,9};
+//int seqSize[seqNum]={7,8,9,11};
 //int channelopt[seqNum]={2,4,4};
-//char pattern[seqNum]={0,1,2};
-char pattern[seqNum]={0,1,2,3};
+char pattern[seqNum]={0,1,2};
+//char pattern[seqNum]={0,1,2,3};
+//N=4 5,7,8 MTTR=11.5
 /*char seqPattern[seqNum][maxSize]={
    {0,0,0,1,2,-1,-1,-1},
    {1,1,0,1,2,2,0,-1},
    {2,2,2,1,2,0,0,1}
 };*/
-char seqPattern[seqNum][maxSize]={
+//N=4 7,8,9,11 MTTR=23.958
+/*char seqPattern[seqNum][maxSize]={
         {0,0,2,0,3,1,1,-1,-1,-1,-1},
         {1,1,1,0,1,2,0,3,-1,-1,-1},
         {2,2,2,3,2,0,3,1,0,-1,-1},
         {3,3,3,2,0,3,1,1,0,2,2}
-};
-/*char seqPattern3[seqNum][maxSize]={
+};*/
+
+//N=4 9,11,13,14
+/*
+char seqPattern[seqNum][maxSize]={
         {0,0,0,1,2,0,1,1,2,1,2,-1,-1,-1},
         {1,1,0,1,2,0,2,2,0,1,2,2,0,-1},
         {2,2,2,2,0,1,1,2,1,0,1,0,1,0}
 };*/
+//N=3 8,9,11
+/*char seqPattern[seqNum][maxSize]={
+          {0,0,0,1,0,2,1,2,-1,-1,-1},
+          {1,1,1,2,1,0,0,0,2,-1,-1},
+          {2,2,2,1,0,2,0,1,1,1,0}
+      };
+ */
+
+// N=3 7,8,9 MTTR=10.2864
+char seqPattern[seqNum][maxSize]={
+          {0,0,2,0,1,1,2,-1,-1},
+          {1,1,1,0,1,2,0,2,-1},
+          {2,2,2,1,2,0,0,1,0}
+      };
+
 int max(int *list,int count,int ch)
 {
    int max_num=-1;
@@ -144,9 +164,11 @@ double myfit2(int len,char *x)
          }
          printf("\n");
       }
-      getchar();*/
-       //return  -1*evaluate_3(sequence[0],sequence[1],sequence[2],3);
-      return  -1*evaluate_3(sequence[0],sequence[1],sequence[2],sequence[3],4);
+      getchar();
+      */
+       return  -1*evaluate_3(sequence[0],sequence[1],sequence[2],3);
+   
+      //return  -1*evaluate_3(sequence[0],sequence[1],sequence[2],sequence[3],4);
    }
    else
    {
@@ -163,11 +185,11 @@ double myfit2(int len,char *x)
 
 
 }
-/*
+
 double myfit(int len,char* x)
 {
 
-   int digits=0,num=seqNum;
+   int digits=0,num=seqNum-1;
    
    while(num>0)
    {
@@ -180,8 +202,8 @@ double myfit(int len,char* x)
    {
       memcpy(temp,x,2);
       x+=2;
-      temp[digits]='\0';
-      seq[i]=strtoint(temp,2);
+      temp[digits]=2;
+      seq[i]=strtoint(temp,2,digits);
    }
    vector<char> sequence[seqNum];
    vector<int> seqVaryIndex[seqNum];
@@ -281,7 +303,6 @@ double myfit(int len,char* x)
    free(seq);
    temp=NULL;
    seq=NULL;
-   //delete [] sequence;
    //return 1;
    //printf("%f\n",evaluate_3(sequence[0],sequence[1],sequence[2],sequence[3],4));
    
@@ -296,20 +317,20 @@ double myfit(int len,char* x)
 
    //getchar();
     
-   return -1*evaluate_3(sequence[0],sequence[1],sequence[2],sequence[3],4);
-
+   //return -1*evaluate_3(sequence[0],sequence[1],sequence[2],sequence[3],4);
+   return -1*evaluate_3(sequence[0],sequence[1],sequence[2],3);
 }
-*/
+
 char mybest(int len,char *x)
 {
-   if(myfit2(len,x)>=-23.95800265)
+   if(myfit(len,x)>=-10.2864)
       return 1;
    else
       return 0;
 }
 /*int main(int argc,char **argv)
 {
-   fitnessDefinition.fitness=myfit2;
+   fitnessDefinition.fitness=myfit;
    fitnessDefinition.goodBBs=NULL;
    fitnessDefinition.isBest=mybest;
  
@@ -433,23 +454,24 @@ char mybest(int len,char *x)
             middle = (left + right) / 2;
 
             printf("===============\n%d\n", middle);
-            middle_average += middle;
-   }  
+            
+   } 
+            middle_average += middle; 
 }
            printf("===============\n middle average %d",middle_average/loop);
 
    return 0;   
-}*/
-
+}
+*/
 int main(int argc,char **argv)
 {
  
-   fitnessDefinition.fitness=myfit2;
+   fitnessDefinition.fitness=myfit;
    fitnessDefinition.goodBBs=NULL;
    fitnessDefinition.isBest=mybest;
    for(int i=0;i<10;i++)
    {
-   if(hBOAmain(argc,argv,40,5000)==1)
+   if(hBOAmain(argc,argv,26,300)==1)
       printf("found opt\n");
    else 
       printf("not found opt\n");

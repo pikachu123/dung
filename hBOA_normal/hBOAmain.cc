@@ -245,7 +245,7 @@ ParamStruct params[] = {
 	{PARAM_INT,
 		"problemSize",
 		&numDiscrete,
-		"40",
+		"50",
 		"number of discrete variables (not continuous!)",
 		NULL},
 
@@ -705,7 +705,7 @@ void writeFinalInfo(RunLog *runLog, int numRuns) {
 
 //==============================================================
 
-int startUp(int argc, char **argv,int pop) {
+int startUp(int argc, char **argv,int pop,int ell) {
 	// set the priority to the lowest value
 
 	//setpriority(PRIO_PROCESS, getpid(), 19);
@@ -729,6 +729,7 @@ int startUp(int argc, char **argv,int pop) {
 	paramFile = getArgString("-config=",argc,argv);
 	getParamsFromFile(paramFile,params);
         N=pop;
+        numDiscrete=ell;
 	// set used recombination method
 	// This is hBOA, please do not change it, everything will collapse!!!
 	recombinationN = 1; 
@@ -804,7 +805,7 @@ int startUp(int argc, char **argv,int pop) {
 		break;
 	}
 	// Always user's fitness function
-	fitnessN = 1;//user_define_fit 
+	fitnessN = 9;//user_define_fit 
 	fitnessParams[0] = numDiscrete;
 	fitness = (Fitness*) getFitness(fitnessN);
 
@@ -1201,9 +1202,9 @@ int hBOAmain(int argc, char **argv,int ell,int pop) {
 	//setpriority(PRIO_PROCESS, getpid(), 19);
 
 	// initialize parameters
-        N=pop;
-        numDiscrete=ell;
-	startUp(argc, argv,pop);
+        //N=pop;
+        //numDiscrete=ell;
+	startUp(argc, argv,pop,ell);
 
 	// now go ahead with the bisection or one 
 
